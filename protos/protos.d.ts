@@ -1967,9 +1967,6 @@ export namespace google {
             /** FieldOptions lazy */
             lazy?: (boolean|null);
 
-            /** FieldOptions unverifiedLazy */
-            unverifiedLazy?: (boolean|null);
-
             /** FieldOptions deprecated */
             deprecated?: (boolean|null);
 
@@ -2006,9 +2003,6 @@ export namespace google {
 
             /** FieldOptions lazy. */
             public lazy: boolean;
-
-            /** FieldOptions unverifiedLazy. */
-            public unverifiedLazy: boolean;
 
             /** FieldOptions deprecated. */
             public deprecated: boolean;
@@ -3529,96 +3523,6 @@ export namespace google {
              */
             public toJSON(): { [k: string]: any };
         }
-
-        /** Properties of a FieldMask. */
-        interface IFieldMask {
-
-            /** FieldMask paths */
-            paths?: (string[]|null);
-        }
-
-        /** Represents a FieldMask. */
-        class FieldMask implements IFieldMask {
-
-            /**
-             * Constructs a new FieldMask.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: google.protobuf.IFieldMask);
-
-            /** FieldMask paths. */
-            public paths: string[];
-
-            /**
-             * Creates a new FieldMask instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns FieldMask instance
-             */
-            public static create(properties?: google.protobuf.IFieldMask): google.protobuf.FieldMask;
-
-            /**
-             * Encodes the specified FieldMask message. Does not implicitly {@link google.protobuf.FieldMask.verify|verify} messages.
-             * @param message FieldMask message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: google.protobuf.IFieldMask, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified FieldMask message, length delimited. Does not implicitly {@link google.protobuf.FieldMask.verify|verify} messages.
-             * @param message FieldMask message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: google.protobuf.IFieldMask, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes a FieldMask message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns FieldMask
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.protobuf.FieldMask;
-
-            /**
-             * Decodes a FieldMask message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns FieldMask
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.protobuf.FieldMask;
-
-            /**
-             * Verifies a FieldMask message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates a FieldMask message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns FieldMask
-             */
-            public static fromObject(object: { [k: string]: any }): google.protobuf.FieldMask;
-
-            /**
-             * Creates a plain object from a FieldMask message. Also converts values to other types if specified.
-             * @param message FieldMask
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: google.protobuf.FieldMask, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this FieldMask to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
     }
 
     /** Namespace cloud. */
@@ -5003,21 +4907,21 @@ export namespace google {
                 namespace Revisions {
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Revisions|getRevision}.
+                     * Callback as used by {@link google.cloud.run.v2.Revisions#getRevision}.
                      * @param error Error, if any
                      * @param [response] Revision
                      */
                     type GetRevisionCallback = (error: (Error|null), response?: google.cloud.run.v2.Revision) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Revisions|listRevisions}.
+                     * Callback as used by {@link google.cloud.run.v2.Revisions#listRevisions}.
                      * @param error Error, if any
                      * @param [response] ListRevisionsResponse
                      */
                     type ListRevisionsCallback = (error: (Error|null), response?: google.cloud.run.v2.ListRevisionsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Revisions|deleteRevision}.
+                     * Callback as used by {@link google.cloud.run.v2.Revisions#deleteRevision}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
@@ -6262,56 +6166,56 @@ export namespace google {
                 namespace Services {
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Services|createService}.
+                     * Callback as used by {@link google.cloud.run.v2.Services#createService}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type CreateServiceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Services|getService}.
+                     * Callback as used by {@link google.cloud.run.v2.Services#getService}.
                      * @param error Error, if any
                      * @param [response] Service
                      */
                     type GetServiceCallback = (error: (Error|null), response?: google.cloud.run.v2.Service) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Services|listServices}.
+                     * Callback as used by {@link google.cloud.run.v2.Services#listServices}.
                      * @param error Error, if any
                      * @param [response] ListServicesResponse
                      */
                     type ListServicesCallback = (error: (Error|null), response?: google.cloud.run.v2.ListServicesResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Services|updateService}.
+                     * Callback as used by {@link google.cloud.run.v2.Services#updateService}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type UpdateServiceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Services|deleteService}.
+                     * Callback as used by {@link google.cloud.run.v2.Services#deleteService}.
                      * @param error Error, if any
                      * @param [response] Operation
                      */
                     type DeleteServiceCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Services|getIamPolicy}.
+                     * Callback as used by {@link google.cloud.run.v2.Services#getIamPolicy}.
                      * @param error Error, if any
                      * @param [response] Policy
                      */
                     type GetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Services|setIamPolicy}.
+                     * Callback as used by {@link google.cloud.run.v2.Services#setIamPolicy}.
                      * @param error Error, if any
                      * @param [response] Policy
                      */
                     type SetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.run.v2.Services|testIamPermissions}.
+                     * Callback as used by {@link google.cloud.run.v2.Services#testIamPermissions}.
                      * @param error Error, if any
                      * @param [response] TestIamPermissionsResponse
                      */
@@ -8296,35 +8200,35 @@ export namespace google {
         namespace Operations {
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|listOperations}.
+             * Callback as used by {@link google.longrunning.Operations#listOperations}.
              * @param error Error, if any
              * @param [response] ListOperationsResponse
              */
             type ListOperationsCallback = (error: (Error|null), response?: google.longrunning.ListOperationsResponse) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|getOperation}.
+             * Callback as used by {@link google.longrunning.Operations#getOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
             type GetOperationCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|deleteOperation}.
+             * Callback as used by {@link google.longrunning.Operations#deleteOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type DeleteOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|cancelOperation}.
+             * Callback as used by {@link google.longrunning.Operations#cancelOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type CancelOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations|waitOperation}.
+             * Callback as used by {@link google.longrunning.Operations#waitOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
@@ -9293,21 +9197,21 @@ export namespace google {
             namespace IAMPolicy {
 
                 /**
-                 * Callback as used by {@link google.iam.v1.IAMPolicy|setIamPolicy}.
+                 * Callback as used by {@link google.iam.v1.IAMPolicy#setIamPolicy}.
                  * @param error Error, if any
                  * @param [response] Policy
                  */
                 type SetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
 
                 /**
-                 * Callback as used by {@link google.iam.v1.IAMPolicy|getIamPolicy}.
+                 * Callback as used by {@link google.iam.v1.IAMPolicy#getIamPolicy}.
                  * @param error Error, if any
                  * @param [response] Policy
                  */
                 type GetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
 
                 /**
-                 * Callback as used by {@link google.iam.v1.IAMPolicy|testIamPermissions}.
+                 * Callback as used by {@link google.iam.v1.IAMPolicy#testIamPermissions}.
                  * @param error Error, if any
                  * @param [response] TestIamPermissionsResponse
                  */
@@ -9322,9 +9226,6 @@ export namespace google {
 
                 /** SetIamPolicyRequest policy */
                 policy?: (google.iam.v1.IPolicy|null);
-
-                /** SetIamPolicyRequest updateMask */
-                updateMask?: (google.protobuf.IFieldMask|null);
             }
 
             /** Represents a SetIamPolicyRequest. */
@@ -9341,9 +9242,6 @@ export namespace google {
 
                 /** SetIamPolicyRequest policy. */
                 public policy?: (google.iam.v1.IPolicy|null);
-
-                /** SetIamPolicyRequest updateMask. */
-                public updateMask?: (google.protobuf.IFieldMask|null);
 
                 /**
                  * Creates a new SetIamPolicyRequest instance using the specified properties.
@@ -9797,9 +9695,6 @@ export namespace google {
                 /** Policy bindings */
                 bindings?: (google.iam.v1.IBinding[]|null);
 
-                /** Policy auditConfigs */
-                auditConfigs?: (google.iam.v1.IAuditConfig[]|null);
-
                 /** Policy etag */
                 etag?: (Uint8Array|string|null);
             }
@@ -9818,9 +9713,6 @@ export namespace google {
 
                 /** Policy bindings. */
                 public bindings: google.iam.v1.IBinding[];
-
-                /** Policy auditConfigs. */
-                public auditConfigs: google.iam.v1.IAuditConfig[];
 
                 /** Policy etag. */
                 public etag: (Uint8Array|string);
@@ -9996,209 +9888,6 @@ export namespace google {
                  * @returns JSON object
                  */
                 public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of an AuditConfig. */
-            interface IAuditConfig {
-
-                /** AuditConfig service */
-                service?: (string|null);
-
-                /** AuditConfig auditLogConfigs */
-                auditLogConfigs?: (google.iam.v1.IAuditLogConfig[]|null);
-            }
-
-            /** Represents an AuditConfig. */
-            class AuditConfig implements IAuditConfig {
-
-                /**
-                 * Constructs a new AuditConfig.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.IAuditConfig);
-
-                /** AuditConfig service. */
-                public service: string;
-
-                /** AuditConfig auditLogConfigs. */
-                public auditLogConfigs: google.iam.v1.IAuditLogConfig[];
-
-                /**
-                 * Creates a new AuditConfig instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns AuditConfig instance
-                 */
-                public static create(properties?: google.iam.v1.IAuditConfig): google.iam.v1.AuditConfig;
-
-                /**
-                 * Encodes the specified AuditConfig message. Does not implicitly {@link google.iam.v1.AuditConfig.verify|verify} messages.
-                 * @param message AuditConfig message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.IAuditConfig, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified AuditConfig message, length delimited. Does not implicitly {@link google.iam.v1.AuditConfig.verify|verify} messages.
-                 * @param message AuditConfig message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.IAuditConfig, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes an AuditConfig message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns AuditConfig
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.AuditConfig;
-
-                /**
-                 * Decodes an AuditConfig message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns AuditConfig
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.AuditConfig;
-
-                /**
-                 * Verifies an AuditConfig message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates an AuditConfig message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns AuditConfig
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.AuditConfig;
-
-                /**
-                 * Creates a plain object from an AuditConfig message. Also converts values to other types if specified.
-                 * @param message AuditConfig
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.AuditConfig, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this AuditConfig to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of an AuditLogConfig. */
-            interface IAuditLogConfig {
-
-                /** AuditLogConfig logType */
-                logType?: (google.iam.v1.AuditLogConfig.LogType|keyof typeof google.iam.v1.AuditLogConfig.LogType|null);
-
-                /** AuditLogConfig exemptedMembers */
-                exemptedMembers?: (string[]|null);
-            }
-
-            /** Represents an AuditLogConfig. */
-            class AuditLogConfig implements IAuditLogConfig {
-
-                /**
-                 * Constructs a new AuditLogConfig.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.IAuditLogConfig);
-
-                /** AuditLogConfig logType. */
-                public logType: (google.iam.v1.AuditLogConfig.LogType|keyof typeof google.iam.v1.AuditLogConfig.LogType);
-
-                /** AuditLogConfig exemptedMembers. */
-                public exemptedMembers: string[];
-
-                /**
-                 * Creates a new AuditLogConfig instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns AuditLogConfig instance
-                 */
-                public static create(properties?: google.iam.v1.IAuditLogConfig): google.iam.v1.AuditLogConfig;
-
-                /**
-                 * Encodes the specified AuditLogConfig message. Does not implicitly {@link google.iam.v1.AuditLogConfig.verify|verify} messages.
-                 * @param message AuditLogConfig message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.IAuditLogConfig, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified AuditLogConfig message, length delimited. Does not implicitly {@link google.iam.v1.AuditLogConfig.verify|verify} messages.
-                 * @param message AuditLogConfig message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.IAuditLogConfig, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes an AuditLogConfig message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns AuditLogConfig
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.AuditLogConfig;
-
-                /**
-                 * Decodes an AuditLogConfig message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns AuditLogConfig
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.AuditLogConfig;
-
-                /**
-                 * Verifies an AuditLogConfig message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates an AuditLogConfig message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns AuditLogConfig
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.AuditLogConfig;
-
-                /**
-                 * Creates a plain object from an AuditLogConfig message. Also converts values to other types if specified.
-                 * @param message AuditLogConfig
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.AuditLogConfig, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this AuditLogConfig to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            namespace AuditLogConfig {
-
-                /** LogType enum. */
-                enum LogType {
-                    LOG_TYPE_UNSPECIFIED = 0,
-                    ADMIN_READ = 1,
-                    DATA_WRITE = 2,
-                    DATA_READ = 3
-                }
             }
 
             /** Properties of a PolicyDelta. */
