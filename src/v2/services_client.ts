@@ -1016,7 +1016,7 @@ export class ServicesClient {
     if (
       typeof request.service?.name !== 'undefined' &&
       RegExp('projects/[^/]+/locations/(?<location>[^/]+)(?:/.*)?').test(
-        request.service.name!
+        request.service?.name!
       )
     ) {
       Object.assign(routingParameter, {
