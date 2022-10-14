@@ -29,8 +29,9 @@ function main(parent, service, serviceId) {
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The location and project in which this service should be created.
-   *  Format: projects/{projectnumber}/locations/{location}
+   *  The location and project in which this service should be created.
+   *  Format: projects/{project}/locations/{location}
+   *  Only lowercase characters, digits, and hyphens.
    */
   // const parent = 'abc123'
   /**
@@ -38,8 +39,9 @@ function main(parent, service, serviceId) {
    */
   // const service = {}
   /**
-   *  Required. The unique identifier for the Service. The name of the service becomes
-   *  {parent}/services/{service_id}.
+   *  Required. The unique identifier for the Service. It must begin with letter,
+   *  and may not end with hyphen; must contain fewer than 50 characters.
+   *  The name of the service becomes {parent}/services/{service_id}.
    */
   // const serviceId = 'abc123'
   /**

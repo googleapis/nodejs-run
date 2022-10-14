@@ -1098,7 +1098,8 @@
                           "values": {
                             "EXECUTION_REASON_UNDEFINED": 0,
                             "JOB_STATUS_SERVICE_POLLING_ERROR": 1,
-                            "NON_ZERO_EXIT_CODE": 2
+                            "NON_ZERO_EXIT_CODE": 2,
+                            "CANCELLED": 3
                           }
                         }
                       }
@@ -1144,6 +1145,18 @@
                           "rule": "repeated",
                           "type": "VolumeMount",
                           "id": 8
+                        },
+                        "workingDir": {
+                          "type": "string",
+                          "id": 9
+                        },
+                        "livenessProbe": {
+                          "type": "Probe",
+                          "id": 10
+                        },
+                        "startupProbe": {
+                          "type": "Probe",
+                          "id": 11
                         }
                       }
                     },
@@ -1315,6 +1328,78 @@
                         "instances": {
                           "rule": "repeated",
                           "type": "string",
+                          "id": 1
+                        }
+                      }
+                    },
+                    "Probe": {
+                      "oneofs": {
+                        "probeType": {
+                          "oneof": [
+                            "httpGet",
+                            "tcpSocket"
+                          ]
+                        }
+                      },
+                      "fields": {
+                        "initialDelaySeconds": {
+                          "type": "int32",
+                          "id": 1
+                        },
+                        "timeoutSeconds": {
+                          "type": "int32",
+                          "id": 2
+                        },
+                        "periodSeconds": {
+                          "type": "int32",
+                          "id": 3
+                        },
+                        "failureThreshold": {
+                          "type": "int32",
+                          "id": 4
+                        },
+                        "httpGet": {
+                          "type": "HTTPGetAction",
+                          "id": 5
+                        },
+                        "tcpSocket": {
+                          "type": "TCPSocketAction",
+                          "id": 6
+                        }
+                      }
+                    },
+                    "HTTPGetAction": {
+                      "fields": {
+                        "path": {
+                          "type": "string",
+                          "id": 1
+                        },
+                        "httpHeaders": {
+                          "rule": "repeated",
+                          "type": "HTTPHeader",
+                          "id": 4
+                        }
+                      }
+                    },
+                    "HTTPHeader": {
+                      "fields": {
+                        "name": {
+                          "type": "string",
+                          "id": 1,
+                          "options": {
+                            "(google.api.field_behavior)": "REQUIRED"
+                          }
+                        },
+                        "value": {
+                          "type": "string",
+                          "id": 2
+                        }
+                      }
+                    },
+                    "TCPSocketAction": {
+                      "fields": {
+                        "port": {
+                          "type": "int32",
                           "id": 1
                         }
                       }

@@ -4076,7 +4076,8 @@ export namespace google {
                     enum ExecutionReason {
                         EXECUTION_REASON_UNDEFINED = 0,
                         JOB_STATUS_SERVICE_POLLING_ERROR = 1,
-                        NON_ZERO_EXIT_CODE = 2
+                        NON_ZERO_EXIT_CODE = 2,
+                        CANCELLED = 3
                     }
                 }
 
@@ -4106,6 +4107,15 @@ export namespace google {
 
                     /** Container volumeMounts */
                     volumeMounts?: (google.cloud.run.v2.IVolumeMount[]|null);
+
+                    /** Container workingDir */
+                    workingDir?: (string|null);
+
+                    /** Container livenessProbe */
+                    livenessProbe?: (google.cloud.run.v2.IProbe|null);
+
+                    /** Container startupProbe */
+                    startupProbe?: (google.cloud.run.v2.IProbe|null);
                 }
 
                 /** Represents a Container. */
@@ -4140,6 +4150,15 @@ export namespace google {
 
                     /** Container volumeMounts. */
                     public volumeMounts: google.cloud.run.v2.IVolumeMount[];
+
+                    /** Container workingDir. */
+                    public workingDir: string;
+
+                    /** Container livenessProbe. */
+                    public livenessProbe?: (google.cloud.run.v2.IProbe|null);
+
+                    /** Container startupProbe. */
+                    public startupProbe?: (google.cloud.run.v2.IProbe|null);
 
                     /**
                      * Creates a new Container instance using the specified properties.
@@ -5261,6 +5280,439 @@ export namespace google {
 
                     /**
                      * Gets the default type url for CloudSqlInstance
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a Probe. */
+                interface IProbe {
+
+                    /** Probe initialDelaySeconds */
+                    initialDelaySeconds?: (number|null);
+
+                    /** Probe timeoutSeconds */
+                    timeoutSeconds?: (number|null);
+
+                    /** Probe periodSeconds */
+                    periodSeconds?: (number|null);
+
+                    /** Probe failureThreshold */
+                    failureThreshold?: (number|null);
+
+                    /** Probe httpGet */
+                    httpGet?: (google.cloud.run.v2.IHTTPGetAction|null);
+
+                    /** Probe tcpSocket */
+                    tcpSocket?: (google.cloud.run.v2.ITCPSocketAction|null);
+                }
+
+                /** Represents a Probe. */
+                class Probe implements IProbe {
+
+                    /**
+                     * Constructs a new Probe.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.run.v2.IProbe);
+
+                    /** Probe initialDelaySeconds. */
+                    public initialDelaySeconds: number;
+
+                    /** Probe timeoutSeconds. */
+                    public timeoutSeconds: number;
+
+                    /** Probe periodSeconds. */
+                    public periodSeconds: number;
+
+                    /** Probe failureThreshold. */
+                    public failureThreshold: number;
+
+                    /** Probe httpGet. */
+                    public httpGet?: (google.cloud.run.v2.IHTTPGetAction|null);
+
+                    /** Probe tcpSocket. */
+                    public tcpSocket?: (google.cloud.run.v2.ITCPSocketAction|null);
+
+                    /** Probe probeType. */
+                    public probeType?: ("httpGet"|"tcpSocket");
+
+                    /**
+                     * Creates a new Probe instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns Probe instance
+                     */
+                    public static create(properties?: google.cloud.run.v2.IProbe): google.cloud.run.v2.Probe;
+
+                    /**
+                     * Encodes the specified Probe message. Does not implicitly {@link google.cloud.run.v2.Probe.verify|verify} messages.
+                     * @param message Probe message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.run.v2.IProbe, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified Probe message, length delimited. Does not implicitly {@link google.cloud.run.v2.Probe.verify|verify} messages.
+                     * @param message Probe message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.run.v2.IProbe, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a Probe message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns Probe
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.run.v2.Probe;
+
+                    /**
+                     * Decodes a Probe message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns Probe
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.run.v2.Probe;
+
+                    /**
+                     * Verifies a Probe message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a Probe message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns Probe
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.run.v2.Probe;
+
+                    /**
+                     * Creates a plain object from a Probe message. Also converts values to other types if specified.
+                     * @param message Probe
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.run.v2.Probe, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this Probe to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for Probe
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a HTTPGetAction. */
+                interface IHTTPGetAction {
+
+                    /** HTTPGetAction path */
+                    path?: (string|null);
+
+                    /** HTTPGetAction httpHeaders */
+                    httpHeaders?: (google.cloud.run.v2.IHTTPHeader[]|null);
+                }
+
+                /** Represents a HTTPGetAction. */
+                class HTTPGetAction implements IHTTPGetAction {
+
+                    /**
+                     * Constructs a new HTTPGetAction.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.run.v2.IHTTPGetAction);
+
+                    /** HTTPGetAction path. */
+                    public path: string;
+
+                    /** HTTPGetAction httpHeaders. */
+                    public httpHeaders: google.cloud.run.v2.IHTTPHeader[];
+
+                    /**
+                     * Creates a new HTTPGetAction instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns HTTPGetAction instance
+                     */
+                    public static create(properties?: google.cloud.run.v2.IHTTPGetAction): google.cloud.run.v2.HTTPGetAction;
+
+                    /**
+                     * Encodes the specified HTTPGetAction message. Does not implicitly {@link google.cloud.run.v2.HTTPGetAction.verify|verify} messages.
+                     * @param message HTTPGetAction message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.run.v2.IHTTPGetAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified HTTPGetAction message, length delimited. Does not implicitly {@link google.cloud.run.v2.HTTPGetAction.verify|verify} messages.
+                     * @param message HTTPGetAction message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.run.v2.IHTTPGetAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a HTTPGetAction message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns HTTPGetAction
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.run.v2.HTTPGetAction;
+
+                    /**
+                     * Decodes a HTTPGetAction message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns HTTPGetAction
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.run.v2.HTTPGetAction;
+
+                    /**
+                     * Verifies a HTTPGetAction message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a HTTPGetAction message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns HTTPGetAction
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.run.v2.HTTPGetAction;
+
+                    /**
+                     * Creates a plain object from a HTTPGetAction message. Also converts values to other types if specified.
+                     * @param message HTTPGetAction
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.run.v2.HTTPGetAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this HTTPGetAction to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for HTTPGetAction
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a HTTPHeader. */
+                interface IHTTPHeader {
+
+                    /** HTTPHeader name */
+                    name?: (string|null);
+
+                    /** HTTPHeader value */
+                    value?: (string|null);
+                }
+
+                /** Represents a HTTPHeader. */
+                class HTTPHeader implements IHTTPHeader {
+
+                    /**
+                     * Constructs a new HTTPHeader.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.run.v2.IHTTPHeader);
+
+                    /** HTTPHeader name. */
+                    public name: string;
+
+                    /** HTTPHeader value. */
+                    public value: string;
+
+                    /**
+                     * Creates a new HTTPHeader instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns HTTPHeader instance
+                     */
+                    public static create(properties?: google.cloud.run.v2.IHTTPHeader): google.cloud.run.v2.HTTPHeader;
+
+                    /**
+                     * Encodes the specified HTTPHeader message. Does not implicitly {@link google.cloud.run.v2.HTTPHeader.verify|verify} messages.
+                     * @param message HTTPHeader message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.run.v2.IHTTPHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified HTTPHeader message, length delimited. Does not implicitly {@link google.cloud.run.v2.HTTPHeader.verify|verify} messages.
+                     * @param message HTTPHeader message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.run.v2.IHTTPHeader, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a HTTPHeader message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns HTTPHeader
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.run.v2.HTTPHeader;
+
+                    /**
+                     * Decodes a HTTPHeader message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns HTTPHeader
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.run.v2.HTTPHeader;
+
+                    /**
+                     * Verifies a HTTPHeader message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a HTTPHeader message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns HTTPHeader
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.run.v2.HTTPHeader;
+
+                    /**
+                     * Creates a plain object from a HTTPHeader message. Also converts values to other types if specified.
+                     * @param message HTTPHeader
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.run.v2.HTTPHeader, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this HTTPHeader to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for HTTPHeader
+                     * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                     * @returns The default type url
+                     */
+                    public static getTypeUrl(typeUrlPrefix?: string): string;
+                }
+
+                /** Properties of a TCPSocketAction. */
+                interface ITCPSocketAction {
+
+                    /** TCPSocketAction port */
+                    port?: (number|null);
+                }
+
+                /** Represents a TCPSocketAction. */
+                class TCPSocketAction implements ITCPSocketAction {
+
+                    /**
+                     * Constructs a new TCPSocketAction.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.run.v2.ITCPSocketAction);
+
+                    /** TCPSocketAction port. */
+                    public port: number;
+
+                    /**
+                     * Creates a new TCPSocketAction instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns TCPSocketAction instance
+                     */
+                    public static create(properties?: google.cloud.run.v2.ITCPSocketAction): google.cloud.run.v2.TCPSocketAction;
+
+                    /**
+                     * Encodes the specified TCPSocketAction message. Does not implicitly {@link google.cloud.run.v2.TCPSocketAction.verify|verify} messages.
+                     * @param message TCPSocketAction message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.run.v2.ITCPSocketAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified TCPSocketAction message, length delimited. Does not implicitly {@link google.cloud.run.v2.TCPSocketAction.verify|verify} messages.
+                     * @param message TCPSocketAction message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.run.v2.ITCPSocketAction, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a TCPSocketAction message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns TCPSocketAction
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.run.v2.TCPSocketAction;
+
+                    /**
+                     * Decodes a TCPSocketAction message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns TCPSocketAction
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.run.v2.TCPSocketAction;
+
+                    /**
+                     * Verifies a TCPSocketAction message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a TCPSocketAction message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns TCPSocketAction
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.run.v2.TCPSocketAction;
+
+                    /**
+                     * Creates a plain object from a TCPSocketAction message. Also converts values to other types if specified.
+                     * @param message TCPSocketAction
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.run.v2.TCPSocketAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this TCPSocketAction to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+
+                    /**
+                     * Gets the default type url for TCPSocketAction
                      * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
                      * @returns The default type url
                      */
