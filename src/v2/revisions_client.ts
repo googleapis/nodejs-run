@@ -188,6 +188,12 @@ export class RevisionsClient {
       cryptoKeyPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}'
       ),
+      executionPathTemplate: new this._gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/jobs/{job}/executions/{execution}'
+      ),
+      jobPathTemplate: new this._gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/jobs/{job}'
+      ),
       locationPathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}'
       ),
@@ -199,6 +205,9 @@ export class RevisionsClient {
       ),
       servicePathTemplate: new this._gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/services/{service}'
+      ),
+      taskPathTemplate: new this._gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/jobs/{job}/executions/{execution}/tasks/{task}'
       ),
     };
 
@@ -493,7 +502,7 @@ export class RevisionsClient {
   }
 
   /**
-   * Delete a Revision.
+   * Deletes a Revision.
    *
    * @param {Object} request
    *   The request object that will be sent.
@@ -650,7 +659,7 @@ export class RevisionsClient {
     >;
   }
   /**
-   * List Revisions from a given Service, or from a given location.
+   * Lists Revisions from a given Service, or from a given location.
    *
    * @param {Object} request
    *   The request object that will be sent.
@@ -1214,6 +1223,125 @@ export class RevisionsClient {
   }
 
   /**
+   * Return a fully-qualified execution resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} job
+   * @param {string} execution
+   * @returns {string} Resource name string.
+   */
+  executionPath(
+    project: string,
+    location: string,
+    job: string,
+    execution: string
+  ) {
+    return this.pathTemplates.executionPathTemplate.render({
+      project: project,
+      location: location,
+      job: job,
+      execution: execution,
+    });
+  }
+
+  /**
+   * Parse the project from Execution resource.
+   *
+   * @param {string} executionName
+   *   A fully-qualified path representing Execution resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromExecutionName(executionName: string) {
+    return this.pathTemplates.executionPathTemplate.match(executionName)
+      .project;
+  }
+
+  /**
+   * Parse the location from Execution resource.
+   *
+   * @param {string} executionName
+   *   A fully-qualified path representing Execution resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromExecutionName(executionName: string) {
+    return this.pathTemplates.executionPathTemplate.match(executionName)
+      .location;
+  }
+
+  /**
+   * Parse the job from Execution resource.
+   *
+   * @param {string} executionName
+   *   A fully-qualified path representing Execution resource.
+   * @returns {string} A string representing the job.
+   */
+  matchJobFromExecutionName(executionName: string) {
+    return this.pathTemplates.executionPathTemplate.match(executionName).job;
+  }
+
+  /**
+   * Parse the execution from Execution resource.
+   *
+   * @param {string} executionName
+   *   A fully-qualified path representing Execution resource.
+   * @returns {string} A string representing the execution.
+   */
+  matchExecutionFromExecutionName(executionName: string) {
+    return this.pathTemplates.executionPathTemplate.match(executionName)
+      .execution;
+  }
+
+  /**
+   * Return a fully-qualified job resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} job
+   * @returns {string} Resource name string.
+   */
+  jobPath(project: string, location: string, job: string) {
+    return this.pathTemplates.jobPathTemplate.render({
+      project: project,
+      location: location,
+      job: job,
+    });
+  }
+
+  /**
+   * Parse the project from Job resource.
+   *
+   * @param {string} jobName
+   *   A fully-qualified path representing Job resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromJobName(jobName: string) {
+    return this.pathTemplates.jobPathTemplate.match(jobName).project;
+  }
+
+  /**
+   * Parse the location from Job resource.
+   *
+   * @param {string} jobName
+   *   A fully-qualified path representing Job resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromJobName(jobName: string) {
+    return this.pathTemplates.jobPathTemplate.match(jobName).location;
+  }
+
+  /**
+   * Parse the job from Job resource.
+   *
+   * @param {string} jobName
+   *   A fully-qualified path representing Job resource.
+   * @returns {string} A string representing the job.
+   */
+  matchJobFromJobName(jobName: string) {
+    return this.pathTemplates.jobPathTemplate.match(jobName).job;
+  }
+
+  /**
    * Return a fully-qualified location resource name string.
    *
    * @param {string} project
@@ -1386,6 +1514,87 @@ export class RevisionsClient {
    */
   matchServiceFromServiceName(serviceName: string) {
     return this.pathTemplates.servicePathTemplate.match(serviceName).service;
+  }
+
+  /**
+   * Return a fully-qualified task resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} job
+   * @param {string} execution
+   * @param {string} task
+   * @returns {string} Resource name string.
+   */
+  taskPath(
+    project: string,
+    location: string,
+    job: string,
+    execution: string,
+    task: string
+  ) {
+    return this.pathTemplates.taskPathTemplate.render({
+      project: project,
+      location: location,
+      job: job,
+      execution: execution,
+      task: task,
+    });
+  }
+
+  /**
+   * Parse the project from Task resource.
+   *
+   * @param {string} taskName
+   *   A fully-qualified path representing Task resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromTaskName(taskName: string) {
+    return this.pathTemplates.taskPathTemplate.match(taskName).project;
+  }
+
+  /**
+   * Parse the location from Task resource.
+   *
+   * @param {string} taskName
+   *   A fully-qualified path representing Task resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromTaskName(taskName: string) {
+    return this.pathTemplates.taskPathTemplate.match(taskName).location;
+  }
+
+  /**
+   * Parse the job from Task resource.
+   *
+   * @param {string} taskName
+   *   A fully-qualified path representing Task resource.
+   * @returns {string} A string representing the job.
+   */
+  matchJobFromTaskName(taskName: string) {
+    return this.pathTemplates.taskPathTemplate.match(taskName).job;
+  }
+
+  /**
+   * Parse the execution from Task resource.
+   *
+   * @param {string} taskName
+   *   A fully-qualified path representing Task resource.
+   * @returns {string} A string representing the execution.
+   */
+  matchExecutionFromTaskName(taskName: string) {
+    return this.pathTemplates.taskPathTemplate.match(taskName).execution;
+  }
+
+  /**
+   * Parse the task from Task resource.
+   *
+   * @param {string} taskName
+   *   A fully-qualified path representing Task resource.
+   * @returns {string} A string representing the task.
+   */
+  matchTaskFromTaskName(taskName: string) {
+    return this.pathTemplates.taskPathTemplate.match(taskName).task;
   }
 
   /**
