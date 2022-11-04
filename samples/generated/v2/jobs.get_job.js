@@ -30,7 +30,8 @@ function main(name) {
    */
   /**
    *  Required. The full name of the Job.
-   *  Format: projects/{project}/locations/{location}/jobs/{job}
+   *  Format: projects/{project}/locations/{location}/jobs/{job}, where {project}
+   *  can be project id or number.
    */
   // const name = 'abc123'
 

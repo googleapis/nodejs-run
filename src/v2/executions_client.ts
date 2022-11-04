@@ -409,7 +409,8 @@ export class ExecutionsClient {
    * @param {string} request.name
    *   Required. The full name of the Execution.
    *   Format:
-   *   projects/{project}/locations/{location}/jobs/{job}/executions/{execution}
+   *   projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
+   *   where {project} can be project id or number.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -495,7 +496,8 @@ export class ExecutionsClient {
    * @param {string} request.name
    *   Required. The name of the Execution to delete.
    *   Format:
-   *   projects/{project}/locations/{location}/jobs/{job}/executions/{execution}
+   *   projects/{project}/locations/{location}/jobs/{job}/executions/{execution},
+   *   where {project} can be project id or number.
    * @param {boolean} request.validateOnly
    *   Indicates that the request should be validated without actually
    *   deleting any resources.
@@ -641,7 +643,8 @@ export class ExecutionsClient {
    * @param {string} request.parent
    *   Required. The Execution from which the Executions should be listed.
    *   To list all Executions across Jobs, use "-" instead of Job name.
-   *   Format: projects/{project}/locations/{location}/jobs/{job}
+   *   Format: projects/{project}/locations/{location}/jobs/{job}, where {project}
+   *   can be project id or number.
    * @param {number} request.pageSize
    *   Maximum number of Executions to return in this call.
    * @param {string} request.pageToken
@@ -736,7 +739,8 @@ export class ExecutionsClient {
    * @param {string} request.parent
    *   Required. The Execution from which the Executions should be listed.
    *   To list all Executions across Jobs, use "-" instead of Job name.
-   *   Format: projects/{project}/locations/{location}/jobs/{job}
+   *   Format: projects/{project}/locations/{location}/jobs/{job}, where {project}
+   *   can be project id or number.
    * @param {number} request.pageSize
    *   Maximum number of Executions to return in this call.
    * @param {string} request.pageToken
@@ -787,7 +791,8 @@ export class ExecutionsClient {
    * @param {string} request.parent
    *   Required. The Execution from which the Executions should be listed.
    *   To list all Executions across Jobs, use "-" instead of Job name.
-   *   Format: projects/{project}/locations/{location}/jobs/{job}
+   *   Format: projects/{project}/locations/{location}/jobs/{job}, where {project}
+   *   can be project id or number.
    * @param {number} request.pageSize
    *   Maximum number of Executions to return in this call.
    * @param {string} request.pageToken

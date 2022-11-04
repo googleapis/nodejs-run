@@ -447,7 +447,8 @@ export class JobsClient {
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The full name of the Job.
-   *   Format: projects/{project}/locations/{location}/jobs/{job}
+   *   Format: projects/{project}/locations/{location}/jobs/{job}, where {project}
+   *   can be project id or number.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -525,7 +526,7 @@ export class JobsClient {
     return this.innerApiCalls.getJob(request, options, callback);
   }
   /**
-   * Get the IAM Access Control policy currently in effect for the given Job.
+   * Gets the IAM Access Control policy currently in effect for the given Job.
    * This result does not include any inherited policies.
    *
    * @param {Object} request
@@ -807,7 +808,8 @@ export class JobsClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The location and project in which this Job should be created.
-   *   Format: projects/{project}/locations/{location}
+   *   Format: projects/{project}/locations/{location}, where {project} can be
+   *   project id or number.
    * @param {google.cloud.run.v2.Job} request.job
    *   Required. The Job instance to create.
    * @param {string} request.jobId
@@ -1093,7 +1095,8 @@ export class JobsClient {
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The full name of the Job.
-   *   Format: projects/{project}/locations/{location}/jobs/{job}
+   *   Format: projects/{project}/locations/{location}/jobs/{job}, where {project}
+   *   can be project id or number.
    * @param {boolean} request.validateOnly
    *   Indicates that the request should be validated without actually
    *   deleting any resources.
@@ -1235,7 +1238,8 @@ export class JobsClient {
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The full name of the Job.
-   *   Format: projects/{project}/locations/{location}/jobs/{job}
+   *   Format: projects/{project}/locations/{location}/jobs/{job}, where {project}
+   *   can be project id or number.
    * @param {boolean} request.validateOnly
    *   Indicates that the request should be validated without actually
    *   deleting any resources.
@@ -1380,7 +1384,8 @@ export class JobsClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The location and project to list resources on.
-   *   Format: projects/{project}/locations/{location}
+   *   Format: projects/{project}/locations/{location}, where {project} can be
+   *   project id or number.
    * @param {number} request.pageSize
    *   Maximum number of Jobs to return in this call.
    * @param {string} request.pageToken
@@ -1474,7 +1479,8 @@ export class JobsClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The location and project to list resources on.
-   *   Format: projects/{project}/locations/{location}
+   *   Format: projects/{project}/locations/{location}, where {project} can be
+   *   project id or number.
    * @param {number} request.pageSize
    *   Maximum number of Jobs to return in this call.
    * @param {string} request.pageToken
@@ -1524,7 +1530,8 @@ export class JobsClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The location and project to list resources on.
-   *   Format: projects/{project}/locations/{location}
+   *   Format: projects/{project}/locations/{location}, where {project} can be
+   *   project id or number.
    * @param {number} request.pageSize
    *   Maximum number of Jobs to return in this call.
    * @param {string} request.pageToken

@@ -16807,6 +16807,7 @@
                          * @property {number|null} [failureThreshold] Probe failureThreshold
                          * @property {google.cloud.run.v2.IHTTPGetAction|null} [httpGet] Probe httpGet
                          * @property {google.cloud.run.v2.ITCPSocketAction|null} [tcpSocket] Probe tcpSocket
+                         * @property {google.cloud.run.v2.IGRPCAction|null} [grpc] Probe grpc
                          */
     
                         /**
@@ -16872,17 +16873,25 @@
                          */
                         Probe.prototype.tcpSocket = null;
     
+                        /**
+                         * Probe grpc.
+                         * @member {google.cloud.run.v2.IGRPCAction|null|undefined} grpc
+                         * @memberof google.cloud.run.v2.Probe
+                         * @instance
+                         */
+                        Probe.prototype.grpc = null;
+    
                         // OneOf field names bound to virtual getters and setters
                         var $oneOfFields;
     
                         /**
                          * Probe probeType.
-                         * @member {"httpGet"|"tcpSocket"|undefined} probeType
+                         * @member {"httpGet"|"tcpSocket"|"grpc"|undefined} probeType
                          * @memberof google.cloud.run.v2.Probe
                          * @instance
                          */
                         Object.defineProperty(Probe.prototype, "probeType", {
-                            get: $util.oneOfGetter($oneOfFields = ["httpGet", "tcpSocket"]),
+                            get: $util.oneOfGetter($oneOfFields = ["httpGet", "tcpSocket", "grpc"]),
                             set: $util.oneOfSetter($oneOfFields)
                         });
     
@@ -16922,6 +16931,8 @@
                                 $root.google.cloud.run.v2.HTTPGetAction.encode(message.httpGet, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
                             if (message.tcpSocket != null && Object.hasOwnProperty.call(message, "tcpSocket"))
                                 $root.google.cloud.run.v2.TCPSocketAction.encode(message.tcpSocket, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                            if (message.grpc != null && Object.hasOwnProperty.call(message, "grpc"))
+                                $root.google.cloud.run.v2.GRPCAction.encode(message.grpc, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
                             return writer;
                         };
     
@@ -16978,6 +16989,10 @@
                                     }
                                 case 6: {
                                         message.tcpSocket = $root.google.cloud.run.v2.TCPSocketAction.decode(reader, reader.uint32());
+                                        break;
+                                    }
+                                case 7: {
+                                        message.grpc = $root.google.cloud.run.v2.GRPCAction.decode(reader, reader.uint32());
                                         break;
                                     }
                                 default:
@@ -17046,6 +17061,16 @@
                                         return "tcpSocket." + error;
                                 }
                             }
+                            if (message.grpc != null && message.hasOwnProperty("grpc")) {
+                                if (properties.probeType === 1)
+                                    return "probeType: multiple values";
+                                properties.probeType = 1;
+                                {
+                                    var error = $root.google.cloud.run.v2.GRPCAction.verify(message.grpc);
+                                    if (error)
+                                        return "grpc." + error;
+                                }
+                            }
                             return null;
                         };
     
@@ -17078,6 +17103,11 @@
                                 if (typeof object.tcpSocket !== "object")
                                     throw TypeError(".google.cloud.run.v2.Probe.tcpSocket: object expected");
                                 message.tcpSocket = $root.google.cloud.run.v2.TCPSocketAction.fromObject(object.tcpSocket);
+                            }
+                            if (object.grpc != null) {
+                                if (typeof object.grpc !== "object")
+                                    throw TypeError(".google.cloud.run.v2.Probe.grpc: object expected");
+                                message.grpc = $root.google.cloud.run.v2.GRPCAction.fromObject(object.grpc);
                             }
                             return message;
                         };
@@ -17118,6 +17148,11 @@
                                 object.tcpSocket = $root.google.cloud.run.v2.TCPSocketAction.toObject(message.tcpSocket, options);
                                 if (options.oneofs)
                                     object.probeType = "tcpSocket";
+                            }
+                            if (message.grpc != null && message.hasOwnProperty("grpc")) {
+                                object.grpc = $root.google.cloud.run.v2.GRPCAction.toObject(message.grpc, options);
+                                if (options.oneofs)
+                                    object.probeType = "grpc";
                             }
                             return object;
                         };
@@ -17827,6 +17862,233 @@
                         };
     
                         return TCPSocketAction;
+                    })();
+    
+                    v2.GRPCAction = (function() {
+    
+                        /**
+                         * Properties of a GRPCAction.
+                         * @memberof google.cloud.run.v2
+                         * @interface IGRPCAction
+                         * @property {number|null} [port] GRPCAction port
+                         * @property {string|null} [service] GRPCAction service
+                         */
+    
+                        /**
+                         * Constructs a new GRPCAction.
+                         * @memberof google.cloud.run.v2
+                         * @classdesc Represents a GRPCAction.
+                         * @implements IGRPCAction
+                         * @constructor
+                         * @param {google.cloud.run.v2.IGRPCAction=} [properties] Properties to set
+                         */
+                        function GRPCAction(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * GRPCAction port.
+                         * @member {number} port
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @instance
+                         */
+                        GRPCAction.prototype.port = 0;
+    
+                        /**
+                         * GRPCAction service.
+                         * @member {string} service
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @instance
+                         */
+                        GRPCAction.prototype.service = "";
+    
+                        /**
+                         * Creates a new GRPCAction instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @static
+                         * @param {google.cloud.run.v2.IGRPCAction=} [properties] Properties to set
+                         * @returns {google.cloud.run.v2.GRPCAction} GRPCAction instance
+                         */
+                        GRPCAction.create = function create(properties) {
+                            return new GRPCAction(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified GRPCAction message. Does not implicitly {@link google.cloud.run.v2.GRPCAction.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @static
+                         * @param {google.cloud.run.v2.IGRPCAction} message GRPCAction message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GRPCAction.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.port != null && Object.hasOwnProperty.call(message, "port"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.port);
+                            if (message.service != null && Object.hasOwnProperty.call(message, "service"))
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.service);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified GRPCAction message, length delimited. Does not implicitly {@link google.cloud.run.v2.GRPCAction.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @static
+                         * @param {google.cloud.run.v2.IGRPCAction} message GRPCAction message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        GRPCAction.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a GRPCAction message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.run.v2.GRPCAction} GRPCAction
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GRPCAction.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.run.v2.GRPCAction();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1: {
+                                        message.port = reader.int32();
+                                        break;
+                                    }
+                                case 2: {
+                                        message.service = reader.string();
+                                        break;
+                                    }
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a GRPCAction message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.run.v2.GRPCAction} GRPCAction
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        GRPCAction.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a GRPCAction message.
+                         * @function verify
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        GRPCAction.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.port != null && message.hasOwnProperty("port"))
+                                if (!$util.isInteger(message.port))
+                                    return "port: integer expected";
+                            if (message.service != null && message.hasOwnProperty("service"))
+                                if (!$util.isString(message.service))
+                                    return "service: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a GRPCAction message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.run.v2.GRPCAction} GRPCAction
+                         */
+                        GRPCAction.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.run.v2.GRPCAction)
+                                return object;
+                            var message = new $root.google.cloud.run.v2.GRPCAction();
+                            if (object.port != null)
+                                message.port = object.port | 0;
+                            if (object.service != null)
+                                message.service = String(object.service);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a GRPCAction message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @static
+                         * @param {google.cloud.run.v2.GRPCAction} message GRPCAction
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        GRPCAction.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.port = 0;
+                                object.service = "";
+                            }
+                            if (message.port != null && message.hasOwnProperty("port"))
+                                object.port = message.port;
+                            if (message.service != null && message.hasOwnProperty("service"))
+                                object.service = message.service;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this GRPCAction to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        GRPCAction.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * Gets the default type url for GRPCAction
+                         * @function getTypeUrl
+                         * @memberof google.cloud.run.v2.GRPCAction
+                         * @static
+                         * @param {string} [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+                         * @returns {string} The default type url
+                         */
+                        GRPCAction.getTypeUrl = function getTypeUrl(typeUrlPrefix) {
+                            if (typeUrlPrefix === undefined) {
+                                typeUrlPrefix = "type.googleapis.com";
+                            }
+                            return typeUrlPrefix + "/google.cloud.run.v2.GRPCAction";
+                        };
+    
+                        return GRPCAction;
                     })();
     
                     v2.VpcAccess = (function() {

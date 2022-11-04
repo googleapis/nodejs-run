@@ -1365,7 +1365,7 @@
                         },
                         "conditions": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Condition",
+                          "type": "Condition",
                           "id": 17,
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY"
@@ -1419,12 +1419,12 @@
                       "fields": {
                         "containers": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Container",
+                          "type": "Container",
                           "id": 1
                         },
                         "volumes": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Volume",
+                          "type": "Volume",
                           "id": 2
                         },
                         "maxRetries": {
@@ -1440,7 +1440,7 @@
                           "id": 5
                         },
                         "executionEnvironment": {
-                          "type": "google.cloud.run.v2.ExecutionEnvironment",
+                          "type": "ExecutionEnvironment",
                           "id": 6
                         },
                         "encryptionKey": {
@@ -1451,7 +1451,7 @@
                           }
                         },
                         "vpcAccess": {
-                          "type": "google.cloud.run.v2.VpcAccess",
+                          "type": "VpcAccess",
                           "id": 8
                         }
                       }
@@ -1689,7 +1689,8 @@
                         "probeType": {
                           "oneof": [
                             "httpGet",
-                            "tcpSocket"
+                            "tcpSocket",
+                            "grpc"
                           ]
                         }
                       },
@@ -1717,6 +1718,10 @@
                         "tcpSocket": {
                           "type": "TCPSocketAction",
                           "id": 6
+                        },
+                        "grpc": {
+                          "type": "GRPCAction",
+                          "id": 7
                         }
                       }
                     },
@@ -1753,6 +1758,18 @@
                         "port": {
                           "type": "int32",
                           "id": 1
+                        }
+                      }
+                    },
+                    "GRPCAction": {
+                      "fields": {
+                        "port": {
+                          "type": "int32",
+                          "id": 1
+                        },
+                        "service": {
+                          "type": "string",
+                          "id": 2
                         }
                       }
                     },
@@ -2283,7 +2300,7 @@
                           "id": 14
                         },
                         "binaryAuthorization": {
-                          "type": "google.cloud.run.v2.BinaryAuthorization",
+                          "type": "BinaryAuthorization",
                           "id": 15
                         },
                         "template": {
@@ -2301,7 +2318,7 @@
                           }
                         },
                         "terminalCondition": {
-                          "type": "google.cloud.run.v2.Condition",
+                          "type": "Condition",
                           "id": 18,
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY"
@@ -2309,7 +2326,7 @@
                         },
                         "conditions": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Condition",
+                          "type": "Condition",
                           "id": 19,
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY"
@@ -2612,11 +2629,11 @@
                           }
                         },
                         "scaling": {
-                          "type": "google.cloud.run.v2.RevisionScaling",
+                          "type": "RevisionScaling",
                           "id": 12
                         },
                         "vpcAccess": {
-                          "type": "google.cloud.run.v2.VpcAccess",
+                          "type": "VpcAccess",
                           "id": 13
                         },
                         "maxInstanceRequestConcurrency": {
@@ -2633,16 +2650,16 @@
                         },
                         "containers": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Container",
+                          "type": "Container",
                           "id": 17
                         },
                         "volumes": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Volume",
+                          "type": "Volume",
                           "id": 18
                         },
                         "executionEnvironment": {
-                          "type": "google.cloud.run.v2.ExecutionEnvironment",
+                          "type": "ExecutionEnvironment",
                           "id": 20
                         },
                         "encryptionKey": {
@@ -2661,7 +2678,7 @@
                         },
                         "conditions": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Condition",
+                          "type": "Condition",
                           "id": 31,
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY"
@@ -2710,11 +2727,11 @@
                           "id": 3
                         },
                         "scaling": {
-                          "type": "google.cloud.run.v2.RevisionScaling",
+                          "type": "RevisionScaling",
                           "id": 4
                         },
                         "vpcAccess": {
-                          "type": "google.cloud.run.v2.VpcAccess",
+                          "type": "VpcAccess",
                           "id": 6
                         },
                         "timeout": {
@@ -2727,16 +2744,16 @@
                         },
                         "containers": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Container",
+                          "type": "Container",
                           "id": 10
                         },
                         "volumes": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Volume",
+                          "type": "Volume",
                           "id": 11
                         },
                         "executionEnvironment": {
-                          "type": "google.cloud.run.v2.ExecutionEnvironment",
+                          "type": "ExecutionEnvironment",
                           "id": 13
                         },
                         "encryptionKey": {
@@ -3182,7 +3199,7 @@
                           "id": 14
                         },
                         "ingress": {
-                          "type": "google.cloud.run.v2.IngressTraffic",
+                          "type": "IngressTraffic",
                           "id": 15
                         },
                         "launchStage": {
@@ -3190,7 +3207,7 @@
                           "id": 16
                         },
                         "binaryAuthorization": {
-                          "type": "google.cloud.run.v2.BinaryAuthorization",
+                          "type": "BinaryAuthorization",
                           "id": 17
                         },
                         "template": {
@@ -3202,7 +3219,7 @@
                         },
                         "traffic": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.TrafficTarget",
+                          "type": "TrafficTarget",
                           "id": 19
                         },
                         "observedGeneration": {
@@ -3213,7 +3230,7 @@
                           }
                         },
                         "terminalCondition": {
-                          "type": "google.cloud.run.v2.Condition",
+                          "type": "Condition",
                           "id": 31,
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY"
@@ -3221,7 +3238,7 @@
                         },
                         "conditions": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Condition",
+                          "type": "Condition",
                           "id": 32,
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY"
@@ -3245,7 +3262,7 @@
                         },
                         "trafficStatuses": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.TrafficTargetStatus",
+                          "type": "TrafficTargetStatus",
                           "id": 35,
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY"
@@ -3522,12 +3539,12 @@
                         },
                         "containers": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Container",
+                          "type": "Container",
                           "id": 14
                         },
                         "volumes": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Volume",
+                          "type": "Volume",
                           "id": 15
                         },
                         "maxRetries": {
@@ -3543,7 +3560,7 @@
                           "id": 18
                         },
                         "executionEnvironment": {
-                          "type": "google.cloud.run.v2.ExecutionEnvironment",
+                          "type": "ExecutionEnvironment",
                           "id": 20
                         },
                         "reconciling": {
@@ -3555,7 +3572,7 @@
                         },
                         "conditions": {
                           "rule": "repeated",
-                          "type": "google.cloud.run.v2.Condition",
+                          "type": "Condition",
                           "id": 22,
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY"
@@ -3598,7 +3615,7 @@
                           }
                         },
                         "vpcAccess": {
-                          "type": "google.cloud.run.v2.VpcAccess",
+                          "type": "VpcAccess",
                           "id": 29,
                           "options": {
                             "(google.api.field_behavior)": "OUTPUT_ONLY"

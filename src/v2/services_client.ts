@@ -435,7 +435,8 @@ export class ServicesClient {
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The full name of the Service.
-   *   Format: projects/{project}/locations/{location}/services/{service}
+   *   Format: projects/{project}/locations/{location}/services/{service}, where
+   *   {project} can be project id or number.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -806,13 +807,13 @@ export class ServicesClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The location and project in which this service should be created.
-   *   Format: projects/{project}/locations/{location}
-   *   Only lowercase characters, digits, and hyphens.
+   *   Format: projects/{project}/locations/{location}, where {project} can be
+   *   project id or number. Only lowercase characters, digits, and hyphens.
    * @param {google.cloud.run.v2.Service} request.service
    *   Required. The Service instance to create.
    * @param {string} request.serviceId
    *   Required. The unique identifier for the Service. It must begin with letter,
-   *   and may not end with hyphen; must contain fewer than 50 characters.
+   *   and cannot end with hyphen; must contain fewer than 50 characters.
    *   The name of the service becomes {parent}/services/{service_id}.
    * @param {boolean} request.validateOnly
    *   Indicates that the request should be validated and default values
@@ -1124,7 +1125,8 @@ export class ServicesClient {
    *   The request object that will be sent.
    * @param {string} request.name
    *   Required. The full name of the Service.
-   *   Format: projects/{project}/locations/{location}/services/{service}
+   *   Format: projects/{project}/locations/{location}/services/{service}, where
+   *   {project} can be project id or number.
    * @param {boolean} request.validateOnly
    *   Indicates that the request should be validated without actually
    *   deleting any resources.
@@ -1280,8 +1282,9 @@ export class ServicesClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The location and project to list resources on.
-   *   Location must be a valid GCP region, and may not be the "-" wildcard.
-   *   Format: projects/{project}/locations/{location}
+   *   Location must be a valid GCP region, and cannot be the "-" wildcard.
+   *   Format: projects/{project}/locations/{location}, where {project} can be
+   *   project id or number.
    * @param {number} request.pageSize
    *   Maximum number of Services to return in this call.
    * @param {string} request.pageToken
@@ -1386,8 +1389,9 @@ export class ServicesClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The location and project to list resources on.
-   *   Location must be a valid GCP region, and may not be the "-" wildcard.
-   *   Format: projects/{project}/locations/{location}
+   *   Location must be a valid GCP region, and cannot be the "-" wildcard.
+   *   Format: projects/{project}/locations/{location}, where {project} can be
+   *   project id or number.
    * @param {number} request.pageSize
    *   Maximum number of Services to return in this call.
    * @param {string} request.pageToken
@@ -1448,8 +1452,9 @@ export class ServicesClient {
    *   The request object that will be sent.
    * @param {string} request.parent
    *   Required. The location and project to list resources on.
-   *   Location must be a valid GCP region, and may not be the "-" wildcard.
-   *   Format: projects/{project}/locations/{location}
+   *   Location must be a valid GCP region, and cannot be the "-" wildcard.
+   *   Format: projects/{project}/locations/{location}, where {project} can be
+   *   project id or number.
    * @param {number} request.pageSize
    *   Maximum number of Services to return in this call.
    * @param {string} request.pageToken

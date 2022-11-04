@@ -22,7 +22,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 55,
+                    "end": 56,
                     "type": "FULL"
                 }
             ],
@@ -62,7 +62,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 70,
+                    "end": 71,
                     "type": "FULL"
                 }
             ],
@@ -114,7 +114,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 66,
+                    "end": 67,
                     "type": "FULL"
                 }
             ],
@@ -162,7 +162,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 71,
+                    "end": 72,
                     "type": "FULL"
                 }
             ],
@@ -214,7 +214,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 54,
+                    "end": 55,
                     "type": "FULL"
                 }
             ],
@@ -254,7 +254,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 69,
+                    "end": 70,
                     "type": "FULL"
                 }
             ],
@@ -354,7 +354,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 65,
+                    "end": 66,
                     "type": "FULL"
                 }
             ],
@@ -402,7 +402,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 65,
+                    "end": 66,
                     "type": "FULL"
                 }
             ],
@@ -443,7 +443,7 @@
             "regionTag": "run_v2_generated_Jobs_GetIamPolicy_async",
             "title": "Executions getIamPolicy Sample",
             "origin": "API_DEFINITION",
-            "description": " Get the IAM Access Control policy currently in effect for the given Job. This result does not include any inherited policies.",
+            "description": " Gets the IAM Access Control policy currently in effect for the given Job. This result does not include any inherited policies.",
             "canonical": true,
             "file": "jobs.get_iam_policy.js",
             "language": "JAVASCRIPT",
@@ -778,7 +778,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 54,
+                    "end": 55,
                     "type": "FULL"
                 }
             ],
@@ -818,7 +818,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 70,
+                    "end": 71,
                     "type": "FULL"
                 }
             ],
@@ -918,7 +918,7 @@
             "segments": [
                 {
                     "start": 25,
-                    "end": 65,
+                    "end": 66,
                     "type": "FULL"
                 }
             ],
