@@ -1,4 +1,4 @@
-// Copyright 2022 Google LLC
+// Copyright 2023 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13192,6 +13192,12 @@
                                 message.expireTime = $root.google.protobuf.Timestamp.fromObject(object.expireTime);
                             }
                             switch (object.launchStage) {
+                            default:
+                                if (typeof object.launchStage === "number") {
+                                    message.launchStage = object.launchStage;
+                                    break;
+                                }
+                                break;
                             case "LAUNCH_STAGE_UNSPECIFIED":
                             case 0:
                                 message.launchStage = 0;
@@ -13348,7 +13354,7 @@
                             if (message.expireTime != null && message.hasOwnProperty("expireTime"))
                                 object.expireTime = $root.google.protobuf.Timestamp.toObject(message.expireTime, options);
                             if (message.launchStage != null && message.hasOwnProperty("launchStage"))
-                                object.launchStage = options.enums === String ? $root.google.api.LaunchStage[message.launchStage] : message.launchStage;
+                                object.launchStage = options.enums === String ? $root.google.api.LaunchStage[message.launchStage] === undefined ? message.launchStage : $root.google.api.LaunchStage[message.launchStage] : message.launchStage;
                             if (message.job != null && message.hasOwnProperty("job"))
                                 object.job = message.job;
                             if (message.parallelism != null && message.hasOwnProperty("parallelism"))
@@ -13763,6 +13769,12 @@
                             if (object.serviceAccount != null)
                                 message.serviceAccount = String(object.serviceAccount);
                             switch (object.executionEnvironment) {
+                            default:
+                                if (typeof object.executionEnvironment === "number") {
+                                    message.executionEnvironment = object.executionEnvironment;
+                                    break;
+                                }
+                                break;
                             case "EXECUTION_ENVIRONMENT_UNSPECIFIED":
                             case 0:
                                 message.executionEnvironment = 0;
@@ -13830,7 +13842,7 @@
                             if (message.serviceAccount != null && message.hasOwnProperty("serviceAccount"))
                                 object.serviceAccount = message.serviceAccount;
                             if (message.executionEnvironment != null && message.hasOwnProperty("executionEnvironment"))
-                                object.executionEnvironment = options.enums === String ? $root.google.cloud.run.v2.ExecutionEnvironment[message.executionEnvironment] : message.executionEnvironment;
+                                object.executionEnvironment = options.enums === String ? $root.google.cloud.run.v2.ExecutionEnvironment[message.executionEnvironment] === undefined ? message.executionEnvironment : $root.google.cloud.run.v2.ExecutionEnvironment[message.executionEnvironment] : message.executionEnvironment;
                             if (message.encryptionKey != null && message.hasOwnProperty("encryptionKey"))
                                 object.encryptionKey = message.encryptionKey;
                             if (message.vpcAccess != null && message.hasOwnProperty("vpcAccess"))
@@ -18343,6 +18355,12 @@
                             if (object.connector != null)
                                 message.connector = String(object.connector);
                             switch (object.egress) {
+                            default:
+                                if (typeof object.egress === "number") {
+                                    message.egress = object.egress;
+                                    break;
+                                }
+                                break;
                             case "VPC_EGRESS_UNSPECIFIED":
                             case 0:
                                 message.egress = 0;
@@ -18379,7 +18397,7 @@
                             if (message.connector != null && message.hasOwnProperty("connector"))
                                 object.connector = message.connector;
                             if (message.egress != null && message.hasOwnProperty("egress"))
-                                object.egress = options.enums === String ? $root.google.cloud.run.v2.VpcAccess.VpcEgress[message.egress] : message.egress;
+                                object.egress = options.enums === String ? $root.google.cloud.run.v2.VpcAccess.VpcEgress[message.egress] === undefined ? message.egress : $root.google.cloud.run.v2.VpcAccess.VpcEgress[message.egress] : message.egress;
                             return object;
                         };
     
@@ -22085,6 +22103,12 @@
                             if (object.clientVersion != null)
                                 message.clientVersion = String(object.clientVersion);
                             switch (object.launchStage) {
+                            default:
+                                if (typeof object.launchStage === "number") {
+                                    message.launchStage = object.launchStage;
+                                    break;
+                                }
+                                break;
                             case "LAUNCH_STAGE_UNSPECIFIED":
                             case 0:
                                 message.launchStage = 0;
@@ -22252,7 +22276,7 @@
                             if (message.clientVersion != null && message.hasOwnProperty("clientVersion"))
                                 object.clientVersion = message.clientVersion;
                             if (message.launchStage != null && message.hasOwnProperty("launchStage"))
-                                object.launchStage = options.enums === String ? $root.google.api.LaunchStage[message.launchStage] : message.launchStage;
+                                object.launchStage = options.enums === String ? $root.google.api.LaunchStage[message.launchStage] === undefined ? message.launchStage : $root.google.api.LaunchStage[message.launchStage] : message.launchStage;
                             if (message.binaryAuthorization != null && message.hasOwnProperty("binaryAuthorization"))
                                 object.binaryAuthorization = $root.google.cloud.run.v2.BinaryAuthorization.toObject(message.binaryAuthorization, options);
                             if (message.template != null && message.hasOwnProperty("template"))
@@ -30514,6 +30538,12 @@
                             if (object.serviceAccount != null)
                                 message.serviceAccount = String(object.serviceAccount);
                             switch (object.executionEnvironment) {
+                            default:
+                                if (typeof object.executionEnvironment === "number") {
+                                    message.executionEnvironment = object.executionEnvironment;
+                                    break;
+                                }
+                                break;
                             case "EXECUTION_ENVIRONMENT_UNSPECIFIED":
                             case 0:
                                 message.executionEnvironment = 0;
@@ -30675,7 +30705,7 @@
                             if (message.serviceAccount != null && message.hasOwnProperty("serviceAccount"))
                                 object.serviceAccount = message.serviceAccount;
                             if (message.executionEnvironment != null && message.hasOwnProperty("executionEnvironment"))
-                                object.executionEnvironment = options.enums === String ? $root.google.cloud.run.v2.ExecutionEnvironment[message.executionEnvironment] : message.executionEnvironment;
+                                object.executionEnvironment = options.enums === String ? $root.google.cloud.run.v2.ExecutionEnvironment[message.executionEnvironment] === undefined ? message.executionEnvironment : $root.google.cloud.run.v2.ExecutionEnvironment[message.executionEnvironment] : message.executionEnvironment;
                             if (message.reconciling != null && message.hasOwnProperty("reconciling"))
                                 object.reconciling = message.reconciling;
                             if (message.conditions && message.conditions.length) {
@@ -32303,6 +32333,12 @@
                     if (object.nameField != null)
                         message.nameField = String(object.nameField);
                     switch (object.history) {
+                    default:
+                        if (typeof object.history === "number") {
+                            message.history = object.history;
+                            break;
+                        }
+                        break;
                     case "HISTORY_UNSPECIFIED":
                     case 0:
                         message.history = 0;
@@ -32327,6 +32363,10 @@
                         for (var i = 0; i < object.style.length; ++i)
                             switch (object.style[i]) {
                             default:
+                                if (typeof object.style[i] === "number") {
+                                    message.style[i] = object.style[i];
+                                    break;
+                                }
                             case "STYLE_UNSPECIFIED":
                             case 0:
                                 message.style[i] = 0;
@@ -32374,7 +32414,7 @@
                     if (message.nameField != null && message.hasOwnProperty("nameField"))
                         object.nameField = message.nameField;
                     if (message.history != null && message.hasOwnProperty("history"))
-                        object.history = options.enums === String ? $root.google.api.ResourceDescriptor.History[message.history] : message.history;
+                        object.history = options.enums === String ? $root.google.api.ResourceDescriptor.History[message.history] === undefined ? message.history : $root.google.api.ResourceDescriptor.History[message.history] : message.history;
                     if (message.plural != null && message.hasOwnProperty("plural"))
                         object.plural = message.plural;
                     if (message.singular != null && message.hasOwnProperty("singular"))
@@ -32382,7 +32422,7 @@
                     if (message.style && message.style.length) {
                         object.style = [];
                         for (var j = 0; j < message.style.length; ++j)
-                            object.style[j] = options.enums === String ? $root.google.api.ResourceDescriptor.Style[message.style[j]] : message.style[j];
+                            object.style[j] = options.enums === String ? $root.google.api.ResourceDescriptor.Style[message.style[j]] === undefined ? message.style[j] : $root.google.api.ResourceDescriptor.Style[message.style[j]] : message.style[j];
                     }
                     return object;
                 };
